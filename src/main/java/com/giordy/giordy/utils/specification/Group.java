@@ -218,9 +218,9 @@ public class Group {
             }
         }
 
-        System.out.println("Connectors");
+        /*System.out.println("Connectors");
         System.out.println(startIndexes);
-        System.out.println(endIndexes);
+        System.out.println(endIndexes);*/
 
         for (int i = 0; i < startIndexes.size(); i++) {
             Integer startIndex = startIndexes.get(i);
@@ -266,8 +266,8 @@ public class Group {
 
         Collections.sort(indexes);
 
-        System.out.println("Indexes");
-        System.out.println(indexes);
+        /*System.out.println("Indexes");
+        System.out.println(indexes);*/
 
         for (int i = 0; i < indexes.size(); i = i +2){
             Integer endIndexAux = indexes.get(i);

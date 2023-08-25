@@ -21,9 +21,9 @@ public abstract class BaseController<E extends Base, S extends BaseService<E>, D
     private MapperBaseController<E, DTO> mapper = new MapperBaseController(getClass());
 
     @GetMapping("")
-    public ResponseEntity<ResponseDTO> get(@RequestParam(required = false) String query, Pageable pageable) {
+    public ResponseEntity<?> get(@RequestParam(required = false) String query, Pageable pageable) {
         Page<E> entities = service.get(new Specification<E>(query), pageable);
-        return ResponseEntity.status(HttpStatus.OK).body(mapper.mapToDTOs(entities, query));
+        return ResponseEntity.status(HttpStatus.OK).body(entities);
     }
 
     @GetMapping("/{id}")

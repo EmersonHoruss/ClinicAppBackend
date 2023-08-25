@@ -9,6 +9,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 public abstract class BaseService<E extends Base> {
     @Autowired
@@ -19,8 +20,8 @@ public abstract class BaseService<E extends Base> {
         return new PageImpl<E>(page.getContent(), pageable, page.getTotalElements());
     }
 
-    public Page<E> get(Specification<E> specification) {
-        return (Page<E>) baseRepository.findAll(specification);
+    public List<E> get(Specification<E> specification) {
+        return baseRepository.findAll(specification);
     }
 
     public E getById(Long id) {

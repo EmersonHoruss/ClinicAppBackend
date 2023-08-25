@@ -1,6 +1,6 @@
-package com.giordy.giordy.constants;
+package com.giordy.giordy.constants.URLs;
 
-public class GiordyURLConstant {
+public class URLResourceConstant {
     public static final String RESOURCE_PATIENTS = "/patients";
     public static final String RESOURCE_APPOINTMENTS = "/appointments";
     public static final String RESOURCE_HEALTH_PERSONNEL = "/health_personnel";
@@ -10,4 +10,5 @@ public class GiordyURLConstant {
     public static final String RESOURCE_SHIFTS = "/shifts";
     public static final String RESOURCE_SERVICES_HEALTH = "/services_health";
     public static final String RESOURCE_CLINICS = "/clinic";
+
 }

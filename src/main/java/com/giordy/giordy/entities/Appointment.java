@@ -22,11 +22,11 @@ public class Appointment extends Base {
     @Column(name = "status", nullable = false, unique = false, length = 45)
     private String status;
 
-    @Column(name = "sis_status", nullable = false, unique = false)
+    /*@Column(name = "sis_status", nullable = false, unique = false)
     private Boolean sis_status;
 
     @Column(name = "order", nullable = false, unique = false)
-    private byte order;
+    private byte order;*/
 
     @ManyToOne(optional = false)
     private Patient patient;

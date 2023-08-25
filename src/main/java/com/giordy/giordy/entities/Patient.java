@@ -43,7 +43,7 @@ public class Patient extends Base {
     @Column(name = "dni", nullable = false, unique = true, length = 8)
     private String dni;
 
-    @OneToOne(optional = true)
+    @ManyToOne(optional = true)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 

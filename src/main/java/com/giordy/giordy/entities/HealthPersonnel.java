@@ -30,7 +30,7 @@ public class HealthPersonnel extends Base {
     @Column(name = "dni", nullable = false, unique = true, length = 8)
     private String DNI;
 
-    @OneToOne(optional = true)
+    @ManyToOne(optional = true)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 
