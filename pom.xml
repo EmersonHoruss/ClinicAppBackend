@@ -8,11 +8,11 @@
 		<version>2.7.14</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.giordy</groupId>
-	<artifactId>giordy</artifactId>
+	<groupId>com.clinic</groupId>
+	<artifactId>clinic</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>giordy</name>
-	<description>app to Giordi</description>
+	<name>clinic</name>
+	<description>Clinic app</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
