@@ -6,7 +6,8 @@ import lombok.Setter;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Date;
+import java.time.LocalTime;
+import java.util.List;
 
 @Getter
 @Setter
@@ -16,8 +17,10 @@ public class ShiftDTO extends BaseDTO {
     private String name;
 
     @NotNull
-    private Date start;
+    private LocalTime start;
 
     @NotNull
-    private Date end;
+    private LocalTime end;
+
+    private List<ScheduleDTO> schedules;
 }

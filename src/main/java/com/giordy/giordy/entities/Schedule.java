@@ -1,5 +1,7 @@
 package com.giordy.giordy.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.giordy.giordy.services.ServiceHealthService;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,6 +9,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -18,27 +21,32 @@ import java.util.List;
 @NoArgsConstructor
 public class Schedule extends Base {
     @Column(name = "date", nullable = false, unique = false)
-    private Date date;
+    private LocalDate date;
 
     @Column(name = "appointments", nullable = false, unique = false)
-    private short amount_appointments;
-
-    @OneToMany(mappedBy = "schedule")
-    private List<Appointment> appointments;
+    private short amountAppointments;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "health_personnel_id", referencedColumnName = "id")
+    @JsonBackReference
     private HealthPersonnel healthPersonnel;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "shift_id", referencedColumnName = "id")
+    @JsonBackReference
     private Shift shift;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "service_health_id", referencedColumnName = "id")
+    @JsonBackReference
     private ServiceHealth serviceHealth;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "consulting_room_id", referencedColumnName = "id")
+    @JsonBackReference
     private ConsultingRoom consultingRoom;
+
+    @OneToMany(mappedBy = "schedule")
+    @JsonManagedReference
+    private List<Appointment> appointments;
 }

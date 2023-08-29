@@ -25,4 +25,9 @@ public class StaticResourceController {
         return ResponseEntity.status(HttpStatus.OK).body(responseDTO);
     }
 
+    @GetMapping(URLStaticResourceConstant.RESOURCE_SPECIALTIES)
+    public ResponseEntity<ResponseDTO> getSpecialties() {
+        ResponseDTO responseDTO = new ResponseDTO(AppointmentStateConstant.getResources());
+        return ResponseEntity.status(HttpStatus.OK).body(responseDTO);
+    }
 }

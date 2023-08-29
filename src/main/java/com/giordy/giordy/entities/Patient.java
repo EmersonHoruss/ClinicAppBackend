@@ -1,5 +1,7 @@
 package com.giordy.giordy.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -45,8 +47,10 @@ public class Patient extends Base {
 
     @ManyToOne(optional = true)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
+    @JsonBackReference
     private User user;
 
     @OneToMany(mappedBy = "patient")
+    @JsonManagedReference
     private List<Appointment> appointments;
 }

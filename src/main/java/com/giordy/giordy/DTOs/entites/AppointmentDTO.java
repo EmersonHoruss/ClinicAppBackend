@@ -19,10 +19,10 @@ public class AppointmentDTO extends BaseDTO {
 
     @NotNull
     @Size(max = 45)
-    private String status;
+    private String state;
 
     @NotNull
-    private Boolean sis_status;
+    private Boolean sisState;
 
     @NotNull
     private byte order;
@@ -33,5 +33,5 @@ public class AppointmentDTO extends BaseDTO {
     @NotNull
     private ScheduleDTO schedule;
 
-    private AppointmentDTO rescheduled_from;
+    private AppointmentDTO rescheduledFrom;
 }

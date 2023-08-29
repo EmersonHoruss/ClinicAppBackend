@@ -1,5 +1,6 @@
 package com.giordy.giordy.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,6 +22,15 @@ public class ServiceHealth extends Base {
     @Column(name = "name", nullable = false, unique = true, length = 45)
     private String name;
 
-    /*@OneToMany(mappedBy = "serviceHealth")
-    private List<Schedule> schedules;*/
+    @OneToMany(mappedBy = "serviceHealth")
+    @JsonManagedReference
+    private List<ConsultingRoom> consultingRooms;
+
+    @OneToMany(mappedBy = "serviceHealth")
+    @JsonManagedReference
+    private List<HealthPersonnel> healthPersonnels;
+
+    @OneToMany(mappedBy = "serviceHealth")
+    @JsonManagedReference
+    private List<Schedule> schedules;
 }

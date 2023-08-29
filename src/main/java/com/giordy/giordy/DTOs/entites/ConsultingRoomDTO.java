@@ -1,7 +1,7 @@
 package com.giordy.giordy.DTOs.entites;
 
-import com.giordy.giordy.entities.Schedule;
-import com.giordy.giordy.entities.ServiceHealth;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,4 +20,6 @@ public class ConsultingRoomDTO extends BaseDTO {
     private String description;
 
     private ServiceHealthDTO serviceHealth;
+
+    private List<ScheduleDTO> schedules;
 }

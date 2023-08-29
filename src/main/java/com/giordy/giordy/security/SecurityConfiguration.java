@@ -65,34 +65,8 @@ public class SecurityConfiguration {
                 .csrf().disable()
                 .cors().and()
                 .authorizeRequests((auth)-> auth
-                        .antMatchers(
-                                URLSecurityConstant.SECURITY_VALIDATE,
-                                URLSecurityConstant.SECURITY_SIGNUP,
-                                URLSecurityConstant.SECURITY_LOGIN,
-                                URLStaticResourceConstant.RESOURCE_APPOINTMENT_STATES,
-                                URLStaticResourceConstant.RESOURCE_ROLES
-                        ).permitAll()
-                        .antMatchers(
-                                HttpMethod.GET,
-                                URLResourceConstant.RESOURCE_SHIFTS+"/**",
-                                URLResourceConstant.RESOURCE_SERVICES_HEALTH,
-                                URLResourceConstant.RESOURCE_HEALTH_PERSONNEL,
-                                URLResourceConstant.RESOURCE_CONSULTING_ROOMS
-                        ).hasAnyRole(
-                                RoleConstant.RRHH.getEn(),
-                                RoleConstant.HEALT_PERSONNEL.getEn(),
-                                RoleConstant.ADMIN.getEn(),
-                                RoleConstant.PATIENT.getEn()
-                        )
-                        .antMatchers(
-                                URLResourceConstant.RESOURCE_SHIFTS,
-                                URLResourceConstant.RESOURCE_SERVICES_HEALTH,
-                                URLResourceConstant.RESOURCE_HEALTH_PERSONNEL,
-                                URLResourceConstant.RESOURCE_CONSULTING_ROOMS
-                        ).hasRole(
-                                RoleConstant.ADMIN.getEn()
-                        )
-                        .anyRequest().authenticated()
+
+                        .anyRequest().permitAll()
                 )
                 .formLogin().disable()
                 .httpBasic();
@@ -113,3 +87,30 @@ public class SecurityConfiguration {
         return new BCryptPasswordEncoder();
     }
 }
+/*.antMatchers(
+        URLSecurityConstant.SECURITY_VALIDATE,
+        URLSecurityConstant.SECURITY_SIGNUP,
+        URLSecurityConstant.SECURITY_LOGIN,
+        URLStaticResourceConstant.RESOURCE_APPOINTMENT_STATES,
+        URLStaticResourceConstant.RESOURCE_ROLES
+        ).permitAll()
+        .antMatchers(
+        HttpMethod.GET,
+        URLResourceConstant.RESOURCE_SHIFTS+"/**",
+        URLResourceConstant.RESOURCE_SERVICES_HEALTH,
+        URLResourceConstant.RESOURCE_HEALTH_PERSONNEL,
+        URLResourceConstant.RESOURCE_CONSULTING_ROOMS
+        ).hasAnyRole(
+        RoleConstant.RRHH.getEn(),
+        RoleConstant.HEALT_PERSONNEL.getEn(),
+        RoleConstant.ADMIN.getEn(),
+        RoleConstant.PATIENT.getEn()
+        )
+        .antMatchers(
+        URLResourceConstant.RESOURCE_SHIFTS,
+        URLResourceConstant.RESOURCE_SERVICES_HEALTH,
+        URLResourceConstant.RESOURCE_HEALTH_PERSONNEL,
+        URLResourceConstant.RESOURCE_CONSULTING_ROOMS
+        ).hasRole(
+        RoleConstant.ADMIN.getEn()
+        )*/

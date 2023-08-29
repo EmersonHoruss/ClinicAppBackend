@@ -1,5 +1,6 @@
 package com.giordy.giordy.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -7,6 +8,7 @@ import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.time.LocalTime;
 import java.time.ZonedDateTime;
 import java.util.Date;
 import java.util.List;
@@ -24,11 +26,12 @@ public class Shift extends Base {
     private String name;
 
     @Column(name = "start", nullable = false, unique = false)
-    private Date start;
+    private LocalTime start;
 
     @Column(name = "end", nullable = false, unique = false)
-    private Date end;
+    private LocalTime end;
 
-    /*@OneToMany(mappedBy = "shift")
-    private List<Schedule> schedules;*/
+    @OneToMany(mappedBy = "shift")
+    @JsonManagedReference
+    private List<Schedule> schedules;
 }

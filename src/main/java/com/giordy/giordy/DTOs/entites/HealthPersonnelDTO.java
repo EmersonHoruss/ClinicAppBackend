@@ -1,16 +1,16 @@
 package com.giordy.giordy.DTOs.entites;
 
-import com.giordy.giordy.entities.Schedule;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.List;
 
 @Getter
 @Setter
+@ToString
 public class HealthPersonnelDTO extends BaseDTO {
     @NotBlank
     @Size(max = 90)
@@ -28,14 +28,12 @@ public class HealthPersonnelDTO extends BaseDTO {
     @Size(max = 90)
     private String address;
 
-    @NotBlank
     @Size(min = 8, max = 8)
-    private String DNI;
+    private String dni;
 
     private UserDTO user;
 
-    private List<ScheduleDTO> schedules;
-
-    @NotNull
     private ServiceHealthDTO serviceHealth;
+
+    private List<ScheduleDTO> schedules;
 }

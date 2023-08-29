@@ -3,6 +3,7 @@ package com.giordy.giordy.DTOs.entites;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -21,6 +22,7 @@ public class PatientDTO extends BaseDTO {
     private String surnames;
 
     @Size(max = 90)
+    @Email
     private String email;
 
     @Size(min = 9, max = 9)

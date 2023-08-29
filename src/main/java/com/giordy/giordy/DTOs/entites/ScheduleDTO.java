@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -14,10 +15,10 @@ import java.util.List;
 public class ScheduleDTO extends BaseDTO {
     @NotNull
     @FutureOrPresent
-    private Date date;
+    private LocalDate date;
 
     @NotNull
-    private short amount_appointments;
+    private short amountAppointments;
 
     private List<AppointmentDTO> appointments;
 
