@@ -1,14 +1,27 @@
 FROM eclipse-temurin:8-jdk-jammy
+VOLUME /tmp
+ARG JAR_FILE
+COPY target/*.jar app.jar
+ENTRYPOINT ["java","-jar","/app.jar"]
 
-WORKDIR /app
 
-COPY .mvn .mvn
-COPY pom.xml pom.xml
-COPY mvnw mvnw
+#FROM eclipse-temurin:8-jdk-jammy
 
-COPY src src
+#WORKDIR /app
 
-RUN mvnw clean install
+#COPY .mvn .mvn
+#COPY pom.xml pom.xml
+#COPY mvnw mvnw
+
+#RUN mvnw dependency:resolve
+
+#COPY src src
+
+#RUN mvn clean compile install -Plocal -DskiptTests
+
+
+
+
 
 
 #COPY .mvn/ .mvn
