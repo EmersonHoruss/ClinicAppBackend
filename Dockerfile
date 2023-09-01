@@ -2,14 +2,18 @@ FROM eclipse-temurin:8-jdk-jammy
 
 WORKDIR /app
 
-COPY .mvn/ .mvn
-COPY mvnw pom.xml ./
-RUN ./mvnw dependency:resolve
+COPY .mvn .mvn
+COPY pom.xml pom.xml
 
-COPY src ./src
+COPY src src
 
-CMD ["./mvnw", "spring-boot:run"]
+RUN mvn clean install -Pproduction -DskipTests
 
-#EXPOSE 8080
-#COPY ./target/clinic-0.0.1-SNAPSHOT.jar app.jar
-#ENTRYPOINT ["java", "-jar", "/app.jar"]
+
+#COPY .mvn/ .mvn
+#COPY mvnw pom.xml ./
+#RUN ./mvnw dependency:resolve
+
+#COPY src ./src
+
+#CMD ["./mvnw", "spring-boot:run"]
