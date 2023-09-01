@@ -7,7 +7,7 @@ COPY pom.xml pom.xml
 
 COPY src src
 
-RUN mvn clean install -Pproduction -DskipTests
+RUN mvn clean install
 
 
 #COPY .mvn/ .mvn
