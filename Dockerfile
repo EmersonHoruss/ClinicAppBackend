@@ -4,10 +4,11 @@ WORKDIR /app
 
 COPY .mvn .mvn
 COPY pom.xml pom.xml
+COPY mvnw mvnw
 
 COPY src src
 
-RUN mvn clean install
+RUN mvnw clean install
 
 
 #COPY .mvn/ .mvn
