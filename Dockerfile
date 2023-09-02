@@ -2,7 +2,7 @@ FROM eclipse-temurin:8-jdk-jammy
 
 WORKDIR clinic-app
 
-COPY .mvn .mvn
+COPY ".mvn" ".mvn"
 COPY .mvn ./.mmm
 COPY src src
 COPY mvnw pom.xml ./
