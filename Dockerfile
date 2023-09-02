@@ -1,33 +1,12 @@
 FROM eclipse-temurin:8-jdk-jammy
-VOLUME /tmp
-ARG JAR_FILE
-COPY target/*.jar app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
 
+WORKDIR clinic-app
 
-#FROM eclipse-temurin:8-jdk-jammy
+COPY .mvn .mvn
+COPY src src
+COPY mvnw pom.xml ./
 
-#WORKDIR /app
+RUN ./mvnw dependency:resolve
+RUN ./mvnw compile package -DskipTests
 
-#COPY .mvn .mvn
-#COPY pom.xml pom.xml
-#COPY mvnw mvnw
-
-#RUN mvnw dependency:resolve
-
-#COPY src src
-
-#RUN mvn clean compile install -Plocal -DskiptTests
-
-
-
-
-
-
-#COPY .mvn/ .mvn
-#COPY mvnw pom.xml ./
-#RUN ./mvnw dependency:resolve
-
-#COPY src ./src
-
-#CMD ["./mvnw", "spring-boot:run"]
+ENTRYPOINT ["./mvnw", "spring-boot:run", "-Pproduction", "-DskipTests"]
