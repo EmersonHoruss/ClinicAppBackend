@@ -6,11 +6,11 @@ COPY .mvn .mvn
 COPY src src
 COPY mvnw pom.xml ./
 
-RUN ls -a
-WORKDIR .mvn/wrapper
-RUN ls -a
+#RUN ls -a
+#WORKDIR .mvn/wrapper
+#RUN ls -a
 
-RUN ./mvnw dependency:resolve
+RUN mvnw dependency:resolve
 RUN ./mvnw compile package -DskipTests
 
 ENTRYPOINT ["./mvnw", "spring-boot:run", "-Pproduction", "-DskipTests"]
