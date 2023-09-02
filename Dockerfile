@@ -5,7 +5,6 @@ WORKDIR clinic-app
 COPY .mvn .mvn
 COPY src src
 COPY mvnw pom.xml ./
-COPY pom.xml pom2.xml
 
 RUN ls
 
