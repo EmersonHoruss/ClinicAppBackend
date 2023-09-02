@@ -2,11 +2,11 @@ FROM eclipse-temurin:8-jdk-jammy
 
 WORKDIR clinic-app
 
-COPY ./.mvn mvng
+COPY ./.mvn .mvn
 COPY src src
 COPY mvnw pom.xml ./
 
-RUN ls
+RUN ls -a
 
 RUN ./mvnw dependency:resolve
 RUN ./mvnw compile package -DskipTests
