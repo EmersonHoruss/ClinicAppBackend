@@ -7,8 +7,7 @@ COPY src src
 COPY mvnw pom.xml ./
 
 RUN ls -a
-RUN cd .mvn
-RUN ls -a
+RUN cd .mvn ls -a
 
 RUN ./mvnw dependency:resolve
 RUN ./mvnw compile package -DskipTests
