@@ -15,7 +15,7 @@ public class Base {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(columnDefinition = "boolean default true", nullable = false)
+    @Column(name = "activated", columnDefinition = "boolean default true", nullable = false)
     private Boolean activated;
 
     @PrePersist
