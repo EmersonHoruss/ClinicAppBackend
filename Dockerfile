@@ -7,7 +7,7 @@ COPY src src
 COPY mvnw pom.xml ./
 
 RUN ls -a
-WORKDIR .mvn
+WORKDIR .mvn/wrapper
 RUN ls -a
 
 RUN ./mvnw dependency:resolve
