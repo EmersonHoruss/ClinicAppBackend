@@ -6,6 +6,8 @@ COPY .mvn .mvn
 COPY src src
 COPY mvnw pom.xml ./
 
+RUN ls
+
 #RUN ./mvnw dependency:resolve
 RUN ./mvnw compile package -DskipTests
 
