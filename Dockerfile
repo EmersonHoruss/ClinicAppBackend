@@ -1,8 +1,8 @@
-FROM eclipse-temurin:8-jdk-jammy
+FROM eclipse-temurin:17-jdk-jammy
 
 WORKDIR clinic-app
 
-RUN sudo apt install dos2unix
+#RUN sudo apt install dos2unix
 
 COPY .mvn .mvn
 COPY src src
@@ -12,7 +12,7 @@ COPY mvnw pom.xml ./
 #WORKDIR .mvn/wrapper
 #RUN ls -a
 
-RUN dos2unix mvnw dependency:resolve
+RUN  ./mvnw dependency:resolve
 #RUN ./mvnw compile package -DskipTests
 
 #ENTRYPOINT ["./mvnw", "spring-boot:run", "-Pproduction", "-DskipTests"]
