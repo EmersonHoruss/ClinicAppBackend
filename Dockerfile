@@ -10,7 +10,7 @@ COPY mvnw pom.xml ./
 #WORKDIR .mvn/wrapper
 #RUN ls -a
 
-RUN mvnw dependency:resolve
-RUN ./mvnw compile package -DskipTests
+RUN /bin/sh -c "mvnw dependency:resolve"
+#RUN ./mvnw compile package -DskipTests
 
-ENTRYPOINT ["./mvnw", "spring-boot:run", "-Pproduction", "-DskipTests"]
+#ENTRYPOINT ["./mvnw", "spring-boot:run", "-Pproduction", "-DskipTests"]
