@@ -13,8 +13,8 @@ RUN realpath ./mvnw
 #RUN ls -a
 #WORKDIR .mvn/wrapper
 #RUN ls -a
-
-RUN chmod 777 /clinic-app/mvnw dependency:resolve
+RUN chmod 777 /clinic-app/mvnw
+RUN /clinic-app/mvnw dependency:resolve
 #RUN ./mvnw compile package -DskipTests
 
 #ENTRYPOINT ["./mvnw", "spring-boot:run", "-Pproduction", "-DskipTests"]
