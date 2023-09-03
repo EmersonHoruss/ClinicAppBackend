@@ -10,4 +10,4 @@ RUN chmod 777 /clinic-app/mvnw
 RUN /clinic-app/mvnw dependency:resolve
 RUN /clinic-app/mvnw compile package -DskipTests
 
-#ENTRYPOINT ["/clinic-app/mvnw", "spring-boot:run", "-Pproduction", "-DskipTests"]
+ENTRYPOINT ["/clinic-app/mvnw", "spring-boot:run", "-Pproduction", "-DskipTests"]
