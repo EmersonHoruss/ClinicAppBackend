@@ -2,7 +2,7 @@ FROM eclipse-temurin:8-jdk-jammy
 
 WORKDIR clinic-app
 
-RUN apt-get install dos2unix
+RUN sudo apt install dos2unix
 
 COPY .mvn .mvn
 COPY src src
