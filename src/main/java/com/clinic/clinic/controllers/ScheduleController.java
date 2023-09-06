@@ -11,5 +11,5 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping(URLResourceConstant.RESOURCE_SCHEDULES)
-public class ScheduleController extends BaseController<Schedule, ScheduleService, ScheduleDTO> {
+public class ScheduleController extends BaseController<Schedule, ScheduleDTO> {
 }

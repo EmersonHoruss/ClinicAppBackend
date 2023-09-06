@@ -54,5 +54,5 @@ public abstract class BaseService<E extends Base> {
         return entity;
     }
 
-    public abstract E findById(Long id);
+    protected abstract E findById(Long id);
 }

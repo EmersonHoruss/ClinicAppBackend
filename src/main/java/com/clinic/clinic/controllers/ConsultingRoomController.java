@@ -11,5 +11,5 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping(URLResourceConstant.RESOURCE_CONSULTING_ROOMS)
-public class ConsultingRoomController extends BaseController<ConsultingRoom, ConsultingRoomService, ConsultingRoomDTO> {
+public class ConsultingRoomController extends BaseController<ConsultingRoom, ConsultingRoomDTO> {
 }

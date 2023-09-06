@@ -46,7 +46,7 @@ public class MapperBaseController<E extends Base, DTO extends BaseDTO> {
                 Type genericSuperClass = Class.forName(canonicalName).getGenericSuperclass();
                 Type[] types = ((ParameterizedType) genericSuperClass).getActualTypeArguments();
                 entityType = types[0];
-                entityDTOType = types[2];
+                entityDTOType = types[1];
             } catch (ClassNotFoundException e) {
                 throw new RuntimeException(e);
             }

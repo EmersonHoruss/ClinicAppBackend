@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
-public abstract class BaseController<E extends Base, S extends BaseService<E>, DTO extends BaseDTO> {
+public abstract class BaseController<E extends Base, DTO extends BaseDTO> {
     @Autowired
-    private S service;
+    private BaseService<E> service;
     private MapperBaseController<E, DTO> mapper = new MapperBaseController(getClass());
 
     @GetMapping("")

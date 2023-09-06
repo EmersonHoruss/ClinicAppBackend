@@ -11,5 +11,5 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping(URLResourceConstant.RESOURCE_USERS)
-public class UserController extends BaseController<User, UserService, UserDTO> {
+public class UserController extends BaseController<User, UserDTO> {
 }

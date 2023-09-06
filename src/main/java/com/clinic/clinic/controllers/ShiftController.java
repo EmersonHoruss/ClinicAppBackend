@@ -11,5 +11,5 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping(URLResourceConstant.RESOURCE_SHIFTS)
-public class ShiftController extends BaseController<Shift, ShiftService, ShiftDTO> {
+public class ShiftController extends BaseController<Shift, ShiftDTO> {
 }

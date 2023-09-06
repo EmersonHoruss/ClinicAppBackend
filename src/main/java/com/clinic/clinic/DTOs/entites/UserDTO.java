@@ -12,7 +12,7 @@ public class UserDTO extends BaseDTO {
     @Size(min = 1, max = 45)
     private String user;
 
-    @Size(min = 1, max = 45)
+    @Size(min = 1, max = 60)
     private String password;
 
     @Size(min = 1, max = 45)

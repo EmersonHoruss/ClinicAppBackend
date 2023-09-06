@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.*;
 import java.util.List;
@@ -32,4 +33,12 @@ public class User extends Base {
     @OneToMany(mappedBy = "user")
     @JsonManagedReference
     private List<HealthPersonnel> healthPersonnels;
+
+    public boolean hasUpdatedPassword(String oldPassword){
+        return !password.equals(oldPassword);
+    }
+
+    public void encodePassword(){
+        password = new BCryptPasswordEncoder().encode(password);
+    }
 }

@@ -11,5 +11,5 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping(URLResourceConstant.RESOURCE_HEALTH_PERSONNEL)
-public class HealthPersonnelController extends BaseController<HealthPersonnel, HealthPersonnelService, HealthPersonnelDTO> {
+public class HealthPersonnelController extends BaseController<HealthPersonnel, HealthPersonnelDTO> {
 }
