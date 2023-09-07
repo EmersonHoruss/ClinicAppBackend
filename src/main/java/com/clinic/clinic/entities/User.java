@@ -23,8 +23,8 @@ public class User extends Base {
     @Column(name = "password", nullable = false, unique = false, length = 60)
     private String password;
 
-    @Column(name = "rol", nullable = false, unique = false, length = 45)
-    private String rol;
+    @Column(name = "role", nullable = false, unique = false, length = 45)
+    private String role;
 
     @OneToMany(mappedBy = "user")
     @JsonManagedReference

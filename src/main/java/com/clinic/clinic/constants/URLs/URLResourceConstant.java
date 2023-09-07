@@ -10,5 +10,4 @@ public class URLResourceConstant {
     public static final String RESOURCE_SHIFTS = "/shifts";
     public static final String RESOURCE_SERVICES_HEALTH = "/services_health";
     public static final String RESOURCE_CLINICS = "/clinic";
-
 }

@@ -16,7 +16,7 @@ public class UserDTO extends BaseDTO {
     private String password;
 
     @Size(min = 1, max = 45)
-    private String rol;
+    private String role;
 
     private List<PatientDTO> patients;
 
