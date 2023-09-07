@@ -57,7 +57,7 @@ public class MyDatabaseUserDetailsService implements UserDetailsService {
 
     private List<GrantedAuthority> getAuthorities(String role){
         List<GrantedAuthority> list = new ArrayList<>();
-        list.add(new SimpleGrantedAuthority(role));
+        list.add(new SimpleGrantedAuthority("ROLE_"+role));
         return list;
     }
 }

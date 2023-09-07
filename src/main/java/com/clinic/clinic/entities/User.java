@@ -1,5 +1,6 @@
 package com.clinic.clinic.entities;
 
+import com.clinic.clinic.constants.staticResources.RoleConstant;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
