@@ -1,60 +1,66 @@
 package com.clinic.clinic.docs;
 
-import io.swagger.v3.oas.models.OpenAPI;
-import io.swagger.v3.oas.models.info.Contact;
-import io.swagger.v3.oas.models.info.Info;
-import io.swagger.v3.oas.models.info.License;
-import io.swagger.v3.oas.models.servers.Server;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import springfox.documentation.builders.ApiInfoBuilder;
+import springfox.documentation.builders.PathSelectors;
+import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.service.*;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spi.service.contexts.SecurityContext;
+import springfox.documentation.spring.web.plugins.Docket;
 
-import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Configuration
 public class OpenAPIConfig {
-    @Value("${openapi.local-server-url}")
-    private String localUrl;
-
-    @Value("${openapi.production-server-url}")
-    private String productionUrl;
-
     @Bean
-    public OpenAPI openAPI() {
-        Contact contact = new Contact();
-        contact.setEmail("peralesvillanuevaemerson@gmail.com");
-        contact.setName("David Emerson Perales Villanueva");
-
-        License license = new License()
-                .name("MIT License")
-                .url("https://choosealicense.com/licenses/mit/");
-
-        Info info = new Info()
-                .title("ClinicApp")
-                .version("1.0")
-                .contact(contact)
-                .description("This api exposes endpoits to manage users, schedules and appointments of a clinic.")
-                .license(license);
-
-        return new OpenAPI()
-                .info(info)
-                .servers(servers());
+    public Docket api() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .select()
+                .apis(RequestHandlerSelectors.any())
+                .paths(PathSelectors.any())
+                .build()
+                .apiInfo(apiInfo())
+                .securitySchemes(Collections.singletonList(new BasicAuth("basicAuth")))
+                .securityContexts(Collections.singletonList(securityContext()));
     }
 
-    private List<Server> servers() {
-        Server localServer = new Server();
-        localServer.setUrl(localUrl);
-        localServer.setDescription("Server url in local environment.");
+    private ApiInfo apiInfo() {
+        return new ApiInfoBuilder()
+                .title("ClinicApp API")
+                .description("This api exposes endpoits to manage users, schedules and appointments of a clinic.")
+                .version("1.0.0")
+                .license("MIT License")
+                .licenseUrl("https://choosealicense.com/licenses/mit/")
+                .contact(contact())
+                .build();
+    }
 
-        Server productionServer = new Server();
-        productionServer.setUrl(productionUrl);
-        productionServer.setDescription("Server url in production environment.");
+    private Contact contact(){
+        return new Contact(
+                "EmersonDinosaur",
+                "https://emersonDinosaurPortfolio.com",
+                "emersonDinosaur@gmail.com"
+        );
+    }
 
-        List<Server> servers = new ArrayList<>();
-        servers.add(localServer);
-        servers.add(productionServer);
+    private SecurityContext securityContext() {
+        return SecurityContext
+                .builder()
+                .securityReferences(defaultAuth())
+                .build();
+    }
 
-        return servers;
+    private List<SecurityReference> defaultAuth(){
+        AuthorizationScope[] authorizationScopes = {
+                new AuthorizationScope("global", "accessEverything")
+        };
+
+        return Collections.singletonList(
+                new SecurityReference("basicAuth", authorizationScopes)
+        );
     }
 }

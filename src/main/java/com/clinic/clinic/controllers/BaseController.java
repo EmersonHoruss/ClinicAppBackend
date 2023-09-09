@@ -6,7 +6,6 @@ import com.clinic.clinic.DTOs.reponses.ResponseDTO;
 import com.clinic.clinic.services.BaseService;
 import com.clinic.clinic.utils.mappers.MapperBaseController;
 import com.clinic.clinic.utils.specification.Specification;
-import org.springdoc.api.annotations.ParameterObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -22,7 +21,7 @@ public abstract class BaseController<E extends Base, DTO extends BaseDTO> {
     private MapperBaseController<E, DTO> mapper = new MapperBaseController(getClass());
 
     @GetMapping("")
-    public ResponseEntity<?> get(@RequestParam(required = false) String query,@ParameterObject Pageable pageable) {
+    public ResponseEntity<?> get(@RequestParam(required = false) String query, Pageable pageable) {
         Page<E> entities = service.get(new Specification<E>(query), pageable);
         return ResponseEntity.status(HttpStatus.OK).body(entities);
     }
